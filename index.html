@@ -109,6 +109,26 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .hero {
+  background: url('background.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
   </style>
 </head>
 <body>
@@ -136,7 +156,8 @@
   <div class="hero fade-in" id="top">
     <div>
       <div class="chip">Open to Work</div>
-      <h1 class="title">Virtual Assistant • Customer Service • Technical Support</h1>
+      <h1 class="title">Customer Service • Technical Support • Virtual Assistant</h1>
+      <p class="tagline">Helping businesses save time and deliver excellent customer experiences.</p>
       <p class="subtitle">3+ years across telecommunications, healthcare, and hardware. I help teams deliver smooth customer experiences and reliable admin support.</p>
       <div class="cta">
         <a class="btn" href="resume.pdf" download>📄 Download Resume</a>
@@ -311,6 +332,7 @@
   </script>
 </body>
 </html>
+
 
 
 
