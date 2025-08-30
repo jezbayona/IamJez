@@ -118,13 +118,14 @@
   margin-bottom: 18px;
 }
 
-  .hero .subtitle {
+ .hero .subtitle {
   color: #000;
   font-size: clamp(18px, 4vw, 22px); /* larger text */
   font-weight: 500; /* slightly bolder */
-  max-width: 700px;
-  margin: 0 auto 20px;
+  max-width: 100%;   /* let it stretch full width */
+  margin: 0 0 20px;  /* remove auto centering */
   line-height: 1.6;
+  text-align: justify; /* spreads evenly across the header */
 }
 
   /* Chip styling */
@@ -424,6 +425,7 @@
   </script>
 </body>
 </html>
+
 
 
 
