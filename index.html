@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jezcelyn Bayona | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f9fb; --fg:#1f2937; --muted:#6b7280; --brand:#22c55e; --brand-dark:#16a34a;
+      --card:#ffffff; --ring:#e5e7eb;
+    }
+    body.dark{
+      --bg:#111827; --fg:#f9fafb; --muted:#d1d5db; --card:#1f2937; --ring:#374151;
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;transition:.3s background,.3s color}
+    a{color:inherit;text-decoration:none;transition:.3s color}
+
+    header{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{font-weight:700;letter-spacing:.3px;font-size:1.2rem}
+
+    .menu{display:flex;gap:18px;font-weight:600;transition:.3s}
+    .menu a{padding:4px 0;position:relative}
+    .menu a.active{color:#fff;border-bottom:2px solid #fff}
+
+    /* Hamburger styles */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;width:30px;height:22px;justify-content:center;align-items:center}
+    .hamburger span{width:100%;height:3px;background:#fff;border-radius:2px;transition:all .3s ease-in-out}
+
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translateY(8px);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translateY(-8px);}
+
+    @media(max-width:768px){
+      .menu{display:none;flex-direction:column;position:absolute;top:60px;right:20px;background:var(--card);padding:16px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+      .menu.show{display:flex}
+      .menu a{color:var(--fg)}
+      .hamburger{display:flex}
+    }
+
+    .toggle-btn{background:#fff;color:var(--brand-dark);border:none;padding:6px 12px;border-radius:8px;font-weight:600;cursor:pointer;transition:.3s}
+    .toggle-btn:hover{background:var(--brand-dark);color:#fff}
+
+    .hero{max-width:1100px;margin:0 auto;padding:42px 20px 56px;text-align:center}
+    .title{font-size:clamp(28px,5vw,42px);margin:6px 0 4px;font-weight:700}
+    .subtitle{font-size:clamp(16px,3.5vw,20px);opacity:.95}
+    .cta{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{background:#fff;color:var(--brand-dark);padding:12px 18px;border-radius:10px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.1);transition:.18s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.14)}
+    .btn--outline{background:transparent;color:#fff;border:2px solid #fff;box-shadow:none}
+
+    section{padding:56px 20px;transition:.3s background,.3s color}
+    .container{max-width:1100px;margin:0 auto}
+    h2{font-size:clamp(22px,4vw,28px);margin:0 0 14px;color:var(--brand-dark)}
+    p.lead{color:var(--muted);font-size:18px}
+
+    .grid{display:grid;gap:18px}
+    @media(min-width:760px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:18px;box-shadow:0 8px 18px rgba(0,0,0,.05);transition:.3s transform,.3s background,.3s color}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 28px rgba(0,0,0,.08)}
+    .chip{display:inline-block;background:#ecfdf5;color:var(--brand-dark);padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px}
+    .muted{color:var(--muted)}
+    ul{padding-left:18px;margin:10px 0}
+
+    .contact-ways{display:grid;gap:12px}
+    @media(min-width:760px){.contact-ways{grid-template-columns:repeat(3,1fr)}}
+    .contact-ways a{display:block;text-align:center;padding:14px;border-radius:12px;border:1px solid var(--ring);background:var(--card);font-weight:700}
+    .contact-ways a:hover{border-color:var(--brand-dark)}
+
+    footer{padding:28px 20px;text-align:center;color:#fff;background:#111827}
+    footer a{color:#a7f3d0}
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <div class="nav">
+      <div class="brand">Jezcelyn Bayona</div>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#certs">Certifications</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <button class="toggle-btn" id="themeToggle">🌙 Dark</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero fade-in" id="top">
+    <div>
+      <div class="chip">Open to Work</div>
+      <h1 class="title">Virtual Assistant • Customer Service • Technical Support</h1>
+      <p class="subtitle">3+ years across telecommunications, healthcare, and hardware. I help teams deliver smooth customer experiences and reliable admin support.</p>
+      <div class="cta">
+        <a class="btn" href="resume.pdf" download>📄 Download Resume</a>
+        <a class="btn btn--outline" href="#contact">✉️ Contact Me</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="lead">I’m a customer service and technical support professional with 3+ years of experience helping clients troubleshoot and stay productive. I’m moving into Virtual Assistance to help businesses save time with organized and reliable support.</p>
+      <p class="muted">Based in the Philippines • TESOL-certified • Strong communication and organization</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="grid cols-3">
+        <div class="card"><strong>Customer Service & Relations</strong></div>
+        <div class="card"><strong>Technical Support</strong></div>
+        <div class="card"><strong>Lead Verification & Data</strong></div>
+        <div class="card"><strong>Administrative Assistance</strong></div>
+        <div class="card"><strong>Problem Solving</strong></div>
+        <div class="card"><strong>Team Communication</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-in">
+    <div class="container">
+      <h2>Professional Experience</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Access Healthcare</h3>
+          <p class="muted"><em>Senior Client Partner (Oct 2022 – Jun 2024)</em></p>
+          <ul><li>Verified insurance benefits and qualified orders.</li><li>Coordinated with patients and providers for documentation.</li></ul>
+        </div>
+        <div class="card">
+          <h3>Concentrix</h3>
+          <p class="muted"><em>Technical Support (Apr 2021 – Jun 2021)</em></p>
+          <ul><li>Troubleshot printers and guided users to avoid issues.</li></ul>
+        </div>
+        <div class="card">
+          <h3>Sitel Philippines</h3>
+          <p class="muted"><em>CSR (2019 – 2020)</em></p>
+          <ul><li>Back-office support for energy usage data and billing.</li></ul>
+        </div>
+        <div class="card">
+          <h3>Sykes</h3>
+          <p class="muted"><em>CSR (2015)</em></p>
+          <ul><li>Supported telecom users with devices and service.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs" class="fade-in">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div class="grid cols-3"><div class="card">TESOL Certificate – International Open Academy</div></div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights" class="fade-in">
+    <div class="container">
+      <h2>Highlights</h2>
+      <div class="grid cols-3">
+        <div class="card">Improved resolution rates via education and documentation.</div>
+        <div class="card">Reduced repeat issues with clear troubleshooting guides.</div>
+        <div class="card">Accurate CRM documentation and admin handoffs.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="lead">Let’s work together. I’m available for support and VA roles.</p>
+      <div class="contact-ways">
+        <a href="mailto:jezbayona@gmail.com">📧 jezbayona@gmail.com</a>
+        <a href="tel:+639533467597">📱 +63 953-346-7597</a>
+        <a href="https://jezbayona.github.io/jez-portfolio/">🌐 Portfolio</a>
+      </div>
+      <div class="cta" style="margin-top:18px">
+        <a class="btn" href="resume.pdf" download>📄 Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Jezcelyn Bayona • <a href="#top">Back to top</a>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const toggleBtn = document.getElementById('themeToggle');
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.querySelector('.menu');
+    const menuLinks = document.querySelectorAll('.menu a');
+    const sections = document.querySelectorAll('section');
+
+    // Load theme preference
+    if(localStorage.getItem('theme') === 'dark'){
+      body.classList.add('dark');
+      toggleBtn.textContent = '☀️ Light';
+    }
+
+    function setTheme(dark){
+      if(dark){
+        body.classList.add('dark');
+        toggleBtn.textContent = '☀️ Light';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark');
+        toggleBtn.textContent = '🌙 Dark';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    toggleBtn.addEventListener('click', ()=>{
+      const dark = !body.classList.contains('dark');
+      setTheme(dark);
+    });
+
+    // Hamburger toggle
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('show');
+      hamburger.classList.toggle('open');
+    });
+
+    // Close menu on link click (mobile)
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+        hamburger.classList.remove('open');
+      });
+    });
+
+    // Scroll-triggered fade-in
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Scrollspy
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const navLink = document.querySelector(`.menu a[href="#${id}"]`);
+        if(entry.isIntersecting){
+          menuLinks.forEach(link => link.classList.remove('active'));
+          if(navLink) navLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: "-50% 0px -50% 0px" });
+    sections.forEach(section => navObserver.observe(section));
+  </script>
+</body>
+</html>
